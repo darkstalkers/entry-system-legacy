@@ -371,29 +371,36 @@ a.twitter-link {
   background-color: transparent;
 }
 
-.entry-summary .dl-horizontal dt {
-  width: 240px;
+.entry-summary {
+  margin-bottom: 1em;
 }
 
-.entry-summary .dl-horizontal dd {
-  margin-left: 240px;
+.entry-summary dl {
+  max-width: 300px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.entry-summary dt {
+  -ms-flex: 1 1 240px;
+      flex: 1 1 240px;
+  font-weight: normal;
+}
+
+.entry-summary dd {
+  -ms-flex: 1 1 calc(100% - 240px);
+      flex: 1 1 calc(100% - 240px);
   font-weight: bold;
-  text-align: left;
+  text-align: right;
 }
 
-.entry-summary .dl-horizontal section {
-  clear: both;
-}
-
-#entries > h3, #entries-single > h3, #entry-summary > h3 {
+#entries > h3, #entries-single > h3, .entry-summary > h3 {
   font-weight: bold;
   border: none;
   font-size: 24px;
   margin-bottom: 1em;
-}
-
-.dl-horizontal {
-  margin-bottom: 0;
 }
 
 .updated-at {

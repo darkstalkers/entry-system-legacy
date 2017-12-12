@@ -237,32 +237,30 @@ $team-member-count: 5;
 
 // entry summary
 .entry-summary {
-  .dl-horizontal {
-    dt {
-      width: 240px;
-    }
-    dd {
-      margin-left: 240px;
-      font-weight: bold;
-      text-align: left;
-    }
-    section {
-      clear: both;
-    }
+  margin-bottom: 1em;
+  dl {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  dt {
+    flex: 1 1 240px;
+    font-weight: normal;
+  }
+  dd {
+    flex: 1 1 calc(100% - 240px);
+    font-weight: bold;
+    text-align: right;
   }
 }
 
-#entries, #entries-single, #entry-summary {
+#entries, #entries-single, .entry-summary {
   >h3 {
     font-weight: bold;
     border: none;
     font-size: 24px;
     margin-bottom: 1em;
   }
-}
-
-.dl-horizontal {
-  margin-bottom: 0;
 }
 
 // 更新日時
