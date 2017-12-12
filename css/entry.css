@@ -1,0 +1,388 @@
+.team-entry {
+  display: none;
+}
+
+.team-entry textarea {
+  resize: none;
+}
+
+.team-entry label {
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.team-entry option:not([value]) {
+  color: #9B9B9B;
+}
+
+.team-entry .team-entry-form .team-member {
+  display: block;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.team-entry .team-entry-form legend {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 0 0.2em 5px;
+}
+
+.team-entry .team-entry-form .form-member {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.team-entry .team-entry-form .form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.team-entry #message {
+  display: none;
+}
+
+.team-entry #message .btn {
+  margin-left: 1em;
+}
+
+.team-entry .entry-explain {
+  margin-right: 10px;
+  margin-bottom: 1em;
+}
+
+.team-entry .entry-explain ul {
+  margin-top: 0.8em;
+  margin-left: 0.8em;
+}
+
+.team-entry .require {
+  border: 1px solid #A94442;
+}
+
+.team-entry .form-group .control-label {
+  padding-left: 5px;
+  text-align: left;
+  color: #000 !important;
+}
+
+.team-entry .form-group .control-label .badge {
+  font-size: 10px;
+  background: #A94442;
+}
+
+.team-entry .form-group .control-label[for=pass] {
+  padding-top: 0;
+}
+
+.team-entry .after .radio-inline {
+  padding-top: 14px;
+}
+
+.edit-form {
+  margin: 0 15px 15px;
+}
+
+.edit-form #target {
+  max-width: 180px;
+  margin-right: 1em;
+}
+
+.edit-form #message2 {
+  display: none;
+  margin-top: 1em;
+}
+
+#entry-button {
+  min-width: 60px;
+}
+
+#edit-button {
+  display: none;
+}
+
+#delete-button {
+  display: none;
+}
+
+.entry-open, .entry-close {
+  display: none;
+}
+
+/* entry-form */
+.team-entry .visible-entry {
+  display: block;
+}
+
+.team-entry .visible-entry-inline-block {
+  display: inline-block;
+}
+
+.team-entry .visible-edit {
+  display: none;
+}
+
+.team-entry .visible-edit-inline-block {
+  display: none;
+}
+
+.team-entry.edit .visible-entry {
+  display: none;
+}
+
+.team-entry.edit .visible-entry-inline-block {
+  display: none;
+}
+
+.team-entry.edit .visible-edit {
+  display: block;
+}
+
+.team-entry.edit .visible-edit-inline-block {
+  display: inline-block;
+}
+
+.modal-dialog .modal-header {
+  background: #000;
+  color: #fff;
+}
+
+.modal-dialog .modal-footer {
+  text-align: center;
+}
+
+.modal-dialog .modal-footer button {
+  margin-left: 1em;
+  min-width: 100px;
+}
+
+.modal-dialog .modal-footer button:first-child {
+  margin-left: 0;
+}
+
+.modal-dialog .modal-content {
+  color: #000;
+}
+
+.modal-dialog .modal-body {
+  padding: 15px 15px 0;
+}
+
+.modal-dialog .close {
+  color: #fff;
+  opacity: 0.5;
+}
+
+/* for webkit bug */
+.modal-open {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.done {
+  background: rgba(222, 110, 110, 0.2);
+}
+
+.animate {
+  transition: background-color linear 10s;
+  background-color: transparent;
+}
+
+.entry-summary .dl-horizontal dt {
+  width: 240px;
+}
+
+.entry-summary .dl-horizontal dd {
+  margin-left: 240px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.entry-summary .dl-horizontal section {
+  clear: both;
+}
+
+#entries > h3, #entries-single > h3, #entry-summary > h3 {
+  font-weight: bold;
+  border: none;
+  font-size: 24px;
+  margin-bottom: 1em;
+}
+
+.dl-horizontal {
+  margin-bottom: 0;
+}
+
+.updated-at {
+  color: white;
+  text-shadow: none;
+  line-height: 22px;
+}
+
+.team .team-name {
+  line-height: 1.4;
+  padding-left: 5px;
+  color: #fff;
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 0px 0px 6px red, 0px 0px 6px red;
+}
+
+.team .team-name .team-no {
+  display: inline-block;
+  color: gray;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-shadow: none;
+  min-width: 3em;
+}
+
+.members {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.members .member {
+  -ms-flex: 1 1 20%;
+      flex: 1 1 20%;
+}
+
+.singles {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.singles .member {
+  -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+}
+
+.count {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.count .member {
+  -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+}
+
+.members .member, .singles .member, .count .member {
+  margin: 0;
+  padding: 10px 5px 10px 63px !important;
+  overflow: hidden;
+}
+
+.members .member img, .singles .member img, .count .member img {
+  width: 50px;
+  height: 50px;
+  border-radius: 2px;
+}
+
+.members .member .left-block, .singles .member .left-block, .count .member .left-block {
+  float: left;
+  margin: 0 0 0 -58px;
+}
+
+.members .member .entry-status .material-icons, .singles .member .entry-status .material-icons, .count .member .entry-status .material-icons {
+  font-size: 14px;
+  color: #999;
+}
+
+.members .member .player-name, .singles .member .player-name, .count .member .player-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.members .member .player-chara, .singles .member .player-chara, .count .member .player-chara {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.8em;
+  color: #FFCC00;
+}
+
+.members .member .player-comment, .singles .member .player-comment, .count .member .player-comment {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.members .member .join-party, .singles .member .join-party, .count .member .join-party {
+  display: block;
+  font-size: 16px;
+  padding: 4px 0;
+  color: #ccc;
+}
+
+.edit-link {
+  font-size: 12px;
+  color: lightgray !important;
+  visibility: hidden;
+  text-shadow: none;
+}
+
+.edit-link > .material-icons {
+  font-size: 14px;
+  color: #fff;
+  padding: 4px;
+  background: #8a2625;
+  border-radius: 2px;
+}
+
+.edit-link:hover {
+  color: #333;
+}
+
+.team:hover .edit-link, .single:hover .edit-link {
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .members, .singles {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .members .member, .singles .member {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+  }
+  .member-blank {
+    display: none;
+  }
+  .count .member {
+    -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+  }
+  .updated-at {
+    display: block;
+    float: none !important;
+  }
+  .edit-link {
+    visibility: visible;
+  }
+  .team-entry .radio-inline + .radio-inline {
+    margin-left: 0;
+  }
+  .team-entry label[for$="-character"] {
+    margin-top: 14px;
+  }
+  .edit-form #target {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .modal-dialog .modal-body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .modal-dialog .modal-footer button {
+    min-width: 80px;
+    font-size: 11px;
+  }
+}
+
+/*# sourceMappingURL=entry.css.map */

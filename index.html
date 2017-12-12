@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ヴァンパイアセイヴァー エントリーシステム</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="container">
+    <section id="entry">
+      <h2>エントリー</h2>
+
+      <!-- entry-open  クラスでエントリー受付時の表示、entry-close クラスで受付停止時の表示 -->
+      <div class="entry-open">
+        <p>当日エントリーは、限定数のみ受付可能とする予定です。確実な参加のため、またイベントのスムーズな進行のために是非とも事前エントリーにご協力ください。1人or2人チームでのエントリーも受け付けております。その場合、事前エントリー締め切りの時点で運営で斡旋を行います。</p>
+        <p>※ エントリーの締め切りは、<strong>9月10日</strong>（終日まで）です。</p>
+        <div class="buttons">
+          <a href="#team-entry" class="btn btn-primary to-entry-form">エントリー</a>
+          <a href="#edit-form" class="btn btn-default to-edit-form">編集・削除</a>
+        </div>
+      </div>
+      <div class="entry-close">
+        <p>新規エントリーは締め切りました。編集機能も近日中にオフにしますので、打ち上げ等の入力を忘れないようにしてください。当日エントリーについては後ほど追記します。</p>
+        <div class="buttons">
+          <a href="#edit-form" class="btn btn-default to-edit-form">編集・削除</a>
+        </div>
+      </div>
+    
+      <section id="entries">
+        <h3>チームエントリー <small class="updated-at pull-right">更新日時: <span class="team-last-updated-at"></span></small></h3>
+        <ul id="teams">
+        </ul>
+      </section>
+
+      <section id="entries-single">
+        <h3>エントリー（斡旋希望・参加表明）<small class="updated-at pull-right">更新日時: <span class="single-last-updated-at"></span></small></h3>
+        <ul id="singles" class="singles">
+        </ul>
+      </section>
+
+      <section class="entry-summary">
+        <h3>サマリー</h3>
+        <div style="overflow:hidden;margin-bottom:1em;">
+        <div class="col-sm-6">
+          <dl class="dl-horizontal">
+            <dt>チームエントリー</dt>
+            <dd class="team-entry-count">0</dd>
+            <dt>エントリー（斡旋希望・参加表明）</dt>
+            <dd class="single-entry-count">0</dd>
+          </dl>
+        </div>
+        <div class="col-sm-6">
+          <dl class="dl-horizontal">
+            <dt>参加人数合計</dt>
+            <dd class="total-count">0</dd>
+          </dl>
+        </div>
+        </div>
+        <section>
+          <h4>使用キャラ分布</h4>
+          <ul id="character-count" class="count">
+          </ul>
+        </section>
+      </section>
+    </section>
+  </div>
+
+  <section class="modal fade team-entry" tabindex="-1" role="dialog" id="team-entry">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title visible-entry" id="entry-form-title">エントリー</h4>
+          <h4 class="modal-title visible-edit">エントリーの編集・削除</h4>
+        </div>
+        <div class="modal-body">
+          <form class="team-entry-form form-horizontal visible-entry">
+            <input type="hidden" name="id" value="" id="key">
+            <div class="entry-explain">
+              <p><span style="font-weight:bold;">エントリー内容はいつでも変更できますので、お気軽にエントリーしてください！</span>チームが決まっている方は「チームエントリー」、とくに決まったチームがなくとりあえずエントリーの方は「斡旋希望・参加表明」にチェックを入れてください。チームで出るけどメンバーはまだ見つかっていないという方は「チームエントリー」で他メンバーを空で入力してください。</p>
+              <ul>
+                <li><small>※ エントリー後の編集は自分で行うことが出来ます。（既に登録されたエントリーの編集・削除は<a href="#edit-form" class="change-edit-form">こちら</a>）</small></li>
+                <li><small>※ 問題が発生した場合、ページを再表示して最初からやり直してみてください。</small></li>
+              </ul>
+              <hr>
+            </div>
+            <div class="form-group full-width">
+              <label for="mediation-checkbox" class="col-sm-2 control-label">種別 <span class="badge">必須</span></label>
+              <div class="col-sm-10">
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" id="type-team" name="entry-type" checked>
+                    チームエントリー
+                  </label>
+                </div>
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" id="type-single" name="entry-type">
+                    斡旋希望・参加表明
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group full-width" id="team-name">
+              <label for="teamName" class="col-sm-2 control-label">チーム名 <span class="badge">必須</span></label>
+              <div class="col-sm-10">
+                <input type="text" value="" id="teamName" class="form-control require" placeholder="20文字まで" maxlength="20">
+              </div>
+            </div>
+            <div class="team-member-form">
+              <!-- inject from js -->
+            </div>
+            <div class="form-group full-width form-group-sm pass">
+              <label for="pass" class="col-sm-2 control-label">編集・削除用<br class="hidden-xs">パスワード <span class="badge">必須</span></label>
+              <div class="col-sm-4">
+                <input type="password" value="" id="pass" class="form-control require" placeholder="">
+              </div>
+              <div class="col-sm-6">
+                <small>※ エントリー後に登録情報の編集・削除ができます。</small>
+              </div>
+            </div>
+          </form>
+          <div class="alert" id="message"></div>
+          <form class="edit-form form-inline visible-edit" id="edit-form">
+            <p>
+              <small>
+                ① 対象のエントリーを選び、パスワードを入れて、入力ボタンをクリック（各エントリーの右上の<i class="material-icons" style="font-size:14px">create</i>ボタンでも可能です）<br>
+                ② エントリーフォームに自動的に以前の情報が入力されるので、内容を修正して編集するボタンをクリック<br>
+              </small>
+            </p>
+            <div class="form-group form-group-sm">
+              <label for="target">対象のエントリー</label>
+              <select id="target" class="form-control">
+                <option>選択してください</option>
+                <optgroup label="チームエントリー" id="target-team">
+                </optgroup>
+                <optgroup label="エントリー（斡旋希望・参加表明）" id="target-single">
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group form-group-sm">
+              <label for="input-pass">パスワード</label>
+              <input type="password" id="input-pass" class="form-control">
+            </div>
+            <div class="alert" id="message2"></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="entry-button" class="btn btn-primary visible-entry-inline-block">エントリー</button>
+          <button type="button" id="edit-button" class="btn btn-primary visible-edit-inline-block">編集する</button>
+          <button type="button" id="delete-button" class="btn btn-danger visible-edit-inline-block">削除する</button>
+          <button type="button" id="input-button" class="btn btn-warning visible-edit-inline-block">入力</button>
+          <button type="button" id="cancel-button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </section><!-- /.modal -->
+
+  <script id="template-team-member-form" type="text/x-jquery-tmpl">
+    {{each members}}
+    <fieldsest class="form-group team-member" id="member${$index + 1}">
+      <legend class="col-sm-12">${$index + 1}人目</legend>
+      <div class="form-member form-group">
+        <label for="member${$index + 1}-name" class="col-sm-2 control-label">プレイヤー名 <span class="badge">必須</span></label>
+        <div class="col-sm-4">
+          <input type="text" value="" id="member${$index + 1}-name" class="form-control require" placeholder="15文字まで" maxlength="15">
+        </div>
+        <label for="member${$index + 1}-character" class="col-sm-2 control-label">使用キャラ <span class="badge">必須</span></label>
+        <div class="col-sm-4">
+          <select id="member${$index + 1}-character" class="characters form-control require"><option>選択してください</option></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="member${$index + 1}-twitter" class="col-sm-2 control-label">Twitter ID</label>
+        <div class="col-sm-10">
+          <input type="text" value="" id="member${$index + 1}-twitter" class="form-control" placeholder="@"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="member${$index + 1}-comment" class="col-sm-2 control-label">コメント</label>
+        <div class="col-sm-10">
+          <textarea id="member${$index + 1}-comment" class="form-control" placeholder="30文字まで（改行は削除されます）" maxlength="30"></textarea>
+        </div>
+      </div>
+      {{if $index !== 0}}
+      <div class="form-group">
+        <div class="col-sm-12">
+          <button class="btn btn-default btn-sm clear-button" data-target="${$index + 1}" id="clear-btn-$index">${$index + 1}人目の入力をクリア</button>
+        </div>
+      </div>
+      {{/if}}
+    </fieldsest>
+    {{/each}}
+  </script>
+
+  <script id="template-team" type="text/x-jquery-tmpl">
+    <li id="${key}">
+      <section class="team">
+        <h4 class="team-name">
+          <a href="#" data-id="${key}" class="edit-link pull-right" title="編集・削除">編集</a>
+          <span class="team-no">No. ${no}</span>
+          ${name}
+        </h4>
+        <ul class="members">
+          {{each members}}
+            <li class="member {{if !name}}member-blank{{/if}}">
+              <div class="left-block">
+                <img src="./img/icons/${charaIcon}" alt="">
+              </div>
+              <p class="player-name">
+                {{if twitter}}
+                  <a href="https://twitter.com/${twitter.replace('@', '')}" target="_blank" class="twitter-link">${name} <i class="icon-twitter"></i></a>
+                {{else}}
+                  ${name}
+                {{/if}}
+              </p>
+              <span class="player-chara">${charaName}</span>
+              <p class="player-comment">${comment}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    </li>
+  </script>
+
+  <script id="template-single" type="text/x-jquery-tmpl">
+    <li class="member col-sm-4 single" id="${key}">
+      <div class="left-block">
+        <img src="./img/icons/${members[0].charaIcon}" alt="">
+        {{if members[0].after == 1 }}
+          <span class="material-icons join-party">local_bar</span>
+        {{/if}}
+      </div>
+      <a href="#" data-id="${key}" class="edit-link pull-right" title="編集・削除">編集</a>
+      <p class="player-name">
+        {{if members[0].twitter}}
+          <a href="https://twitter.com/${members[0].twitter.replace('@', '')}" target="_blank" class="twitter-link">${members[0].name} <i class="icon-twitter"></i></a>
+        {{else}}
+          ${members[0].name}
+        {{/if}}
+      </p>
+      <span class="player-chara">${members[0].charaName}</span>
+      <p class="player-comment">${members[0].comment}</p>
+    </li>
+  </script>
+
+  <script id="character-count-template" type="text/x-jquery-tmpl">
+    <li class="member col-sm-3 col-xs-6 single">
+      <div class="left-block">
+        <img src="./img/icons/${image}" alt="">
+      </div>
+      <span class="player-chara">${name}</span>
+      <p class="player-name">${count} 人</p>
+    </li>
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC3dqDipMahwE4VgAUAJEBsAeVGNOVa-Sw",
+      authDomain: "vsav-entry-system.firebaseapp.com",
+      databaseURL: "https://vsav-entry-system.firebaseio.com",
+      projectId: "vsav-entry-system",
+      storageBucket: "vsav-entry-system.appspot.com",
+      messagingSenderId: "479865478902"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+  <script src="bower_components/jquery-tmpl/jquery.tmpl.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/js-md5/js/md5.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

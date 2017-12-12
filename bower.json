@@ -1,0 +1,25 @@
+{
+  "name": "vsav-entry-system",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "pikotea <pikotea@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/darkstalkers/darkstalkers.github.io",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.2.1",
+    "bootstrap": "~3.3.7",
+    "js-md5": "^2.3.0",
+    "jquery-tmpl": "*"
+  }
+}
