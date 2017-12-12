@@ -35,7 +35,6 @@ gulp.task('styles', () => {
           });
         };
         addParent(file.path);
-        console.log(files);
         return gulp.src(files, {base: SASS_DIR});
       }))
     )
@@ -67,7 +66,18 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest(JS_DIR));
 });
 
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('copy', () => {
+  gulp.src('./bower_components/bootstrap/dist/css/bootstrap.min.css')
+    .pipe(gulp.dest('./css'));
+  gulp.src('./bower_components/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('./js'));
+  gulp.src('./bower_components/jquery-tmpl/jquery.tmpl.min.js')
+    .pipe(gulp.dest('./js'));
+  gulp.src('./bower_components/js-md5/js/md5.min.js')
+    .pipe(gulp.dest('./js'));
+});
+
+gulp.task('build', ['styles', 'scripts', 'copy']);
 
 gulp.task('serve', ['build'], () => {
   // args, options, livereload
