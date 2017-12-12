@@ -3,7 +3,6 @@
 $(function () {
   var DATABASE_NAME = 'apocalypse';
   var STORE_NAME = '1';
-  var TEAM_ENTRY = true; // 現在はチーム戦のみ対応
   var TEAM_MEMBER_COUNT = 5;
 
   var CHARACTERS = [{
