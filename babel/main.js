@@ -414,15 +414,17 @@ $(function(){
     if (type === 'single') {
       $('#member1').show();
       $('#member1 > legend').hide();
-      $('#member2').hide();
-      $('#member3').hide();
+      for (var i = 2; i <= TEAM_MEMBER_COUNT; i++) {
+        $(`#member${i}`).hide();
+      }
       $('#team-name').hide();
       $('.pass').show();
     } else {
       $('#member1').show();
       $('#member1 > legend').show();
-      $('#member2').show();
-      $('#member3').show();
+      for (var i = 2; i <= TEAM_MEMBER_COUNT; i++) {
+        $(`#member${i}`).show();
+      }
       $('#team-name').show();
       $('.pass').show();
     }
